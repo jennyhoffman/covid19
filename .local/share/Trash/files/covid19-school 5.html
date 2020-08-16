@@ -13178,7 +13178,7 @@ div#notebook {
   </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Covid-19-in-Schools">Covid-19 in Schools<a class="anchor-link" href="#Covid-19-in-Schools">&#182;</a></h1><p><font color="#1E8449"><i>Jenny Hoffman,  Aug 16, 2020</i></font></p>
+<h3 id="Covid-19-in-Schools">Covid-19 in Schools<a class="anchor-link" href="#Covid-19-in-Schools">&#182;</a></h3><p><font color="#2E86C1">(*Jenny Hoffman, Aug 16, 2020*)</font></p>
 <p>I'm trying to figure out whether to send my kids back to school this fall, so I built a simulator to help parents and teachers understand the risks. The total probability that a person will become infected at school is the product of:</p>
 <p>$\quad$ (probability that an infected person comes to school) $\times$ (probability that the virus is transmitted)</p>
 <p>You can look up the first probability using this
@@ -13189,18 +13189,12 @@ The school can influence the second probability with the following policies:</p>
 <li>Increase the fresh air flow ($R_{\mathrm{fresh}}$ = fresh air flow in ft$^3$/min)</li>
 <li>Use at least one
 <a href="https://www.amazon.com/gp/product/B08194ZQ4N/" target="_blank">HEPA filter</a>
-per classroom ($R_{\mathrm{hepa}}$ = filtration rate in ft$^3$/min; $F_{\mathrm{hepa}}$ = filtration %)</li>
+per classroom ($R_{\mathrm{HEPA}}$ = filtration rate in ft$^3$/min; $F_{\mathrm{HEPA}}$ = filtration %)</li>
 <li>Spend as little time indoors as possible ($t$ = hours spent indoors per week)</li>
 <li>Don't move students between classrooms; move teachers instead if necessary.</li>
 </ul>
 <p>Note that physical distance (the oft-touted "6ft separation") has little relevance indoors, because aerosols diffuse quickly throughout a room at ambient temperature, and building HVAC systems can carry the virus over large distances in hard-to-predict directions. For more detail about how 9 people were sickened across multiple tables in a restaurant and 92 people were sickened across a large floor of a workspace, see <a href="https://www.erinbromage.com/post/the-risks-know-them-avoid-them" target="_blank">Erin Bromage's post</a>.</p>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Simulation">Simulation<a class="anchor-link" href="#Simulation">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13399,7 +13393,7 @@ per classroom ($R_{\mathrm{hepa}}$ = filtration rate in ft$^3$/min; $F_{\mathrm{
 <span class="n">v1b</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span><span class="n">virus_label1</span><span class="p">,</span><span class="n">m_slider1</span><span class="p">,</span><span class="n">p_slider1</span><span class="p">,</span><span class="n">k_slider1</span><span class="p">])</span>
 <span class="n">v1c</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span><span class="n">expose_label1</span><span class="p">,</span><span class="n">Nsick_slider1</span><span class="p">,</span><span class="n">t_slider1</span><span class="p">,</span><span class="n">reset_box1</span><span class="p">])</span>
 <span class="n">h1</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">v1a</span><span class="p">,</span><span class="n">v1b</span><span class="p">,</span><span class="n">v1c</span><span class="p">])</span>
-<span class="n">vtot1</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span><span class="n">out1</span><span class="p">,</span><span class="n">h1</span><span class="p">])</span>
+<span class="n">vtot1</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span><span class="n">h1</span><span class="p">,</span><span class="n">out1</span><span class="p">])</span>
 
 <span class="n">display</span><span class="p">(</span><span class="n">vtot1</span><span class="p">)</span>
 <span class="n">reset_slider1_defaults</span><span class="p">()</span>
@@ -13437,7 +13431,7 @@ per classroom ($R_{\mathrm{hepa}}$ = filtration rate in ft$^3$/min; $F_{\mathrm{
 <li>What is a typical value for the fresh air flow rate? Modern building code requires at least 4 full air turnovers per hour, so in a classroom of 20 ft $\times$ 30 ft (with 9 ft ceilings), the total air flow should be at least 360 ft$^3$/min. However, older buildings may not have been subject to the same building code, and/or their HVAC systems may have deteriorated over time. In fact, there's an even more important consideration: in climates requiring indoor air temperature control, the HVAC system may recirculate up to 90% of the air! Building code requires only 10% of the incoming air to be fresh outdoor air, so a typical fresh air flow rate on a cold winter day may be only 36 ft$^3$/min.</li>
 </ul>
 <ul>
-<li>Now there's an even bigger problem: what if a child is sick in another classroom, and 90% of <em>their</em> air is circulated into <em>your</em> classroom? The best case scenario would completely avoid mixing air between classrooms, but real school buildings are rarely so simple. To avoid transmission between classrooms, in some circumstances where $F_{\mathrm{fresh}}$ is low it may be best to turn down the total HVAC flow rate as low as possible (even if that means reducing the amount of fresh air), and instead use more HEPA filters to reduce contamination within each classroom individually. We explore these circumstances in more detail <a href="#more_detail">below</a> by adding a concentration $n_{\mathrm{hall}}$ of virus particles in the building, but outside the classroom.</li>
+<li>Now there's an even bigger problem: what if a child is sick in another classroom, and 90% of <em>their</em> air is circulated into <em>your</em> classroom? The best case scenario would completely avoid mixing air between classrooms, but real school buildings are rarely so simple. To avoid transmission between classrooms, in some circumstances where $F_{\mathrm{fresh}}$ is low it may be best to turn down the total HVAC flow rate as low as possible (even if that means reducing the amount of fresh air), and instead use more HEPA filters to reduce contamination within each classroom individually. We explore these circumstances in more detail <a href="#more_detail">below</a> by adding a concentration $n_{\mathrm{hall}}$ of virus particles in building, but outside the classroom.</li>
 </ul>
 <ul>
 <li>The plots are drawn from the point of view of a parent: they show the probability $p$ that <em>your</em> child will get sick. But from the school's point of view, in a classroom of $N$ students with $N_{\mathrm{sick}} &gt; 0$, the total probabiliy that <em>somebody's</em> child (or teacher) will get sick is $P_{\mathrm{tot}} = 1-(1-p)^N$. So even for a relatively small <em>individual</em> transmission risk of $p=2\%$, the <em>collective</em> probability of transmission within a single classroom of $N=20$ students is 33%.</li>
@@ -13455,7 +13449,7 @@ per classroom ($R_{\mathrm{hepa}}$ = filtration rate in ft$^3$/min; $F_{\mathrm{
 </li>
 </ul>
 <ul>
-<li>Why move the teachers instead of the students? With 4 air turnovers per hour, it will take at least 15 minutes to decontaminate a classroom. SARS-COV-2 virus remained viable in aerosol throughout the duration of a 3-hour experiment, with a half-life of 1.2 hours. Surfaces are not the primary cause of transmission, but they may become contaminated by aerosols even if they are not directly touched by a sick individual. On surfaces, the half-life is $\sim$3 hours on cardboard, $\sim$5 hours on steel, and $\sim$7 hours on plastic, although some viable SARS-COV-2 virus could be detected on all surfaces for at least 24 hours (<a href="http://dx.doi.org/10.1056/nejmc2004973" target="_blank">van Doremalen 2020</a>).</li>
+<li>Why move the teachers instead of the students? With 4 air turnovers per hour, it will take at least 15 minutes to decontaminate a classroom. SARS-COV-2 virus remained viable in aerosol throughout the duration of a 3-hour experiment, with a half-life of 1.2 hours. Surfaces are not the primary cause of transmission, but they may become contaminated by aerosols even if they are not directly touched by a sick individual. On surfaces, the half-life is $\sim3$ hours on cardboard, $\sim5$ hours on steel, and $\sim7$ hours on plastic, although some viable SARS-COV-2 virus could be detected on all surfaces for at least 24 hours (<a href="http://dx.doi.org/10.1056/nejmc2004973" target="_blank">van Doremalen 2020</a>).</li>
 </ul>
 <ul>
 <li>Why conduct classes outside? A Chinese preprint studied 318 outbreaks of size three or more, involving 1245 total confirmed cases in 120 cities. Out of all 318 outbreaks, only a single one involved outdoor transmission (<a href="https://doi.org/10.1101/2020.04.04.20053058" target="_blank">Qian 2020</a>).</li>
@@ -13535,7 +13529,7 @@ p(t) = 1 - \exp(-(1-F_{\mathrm{mask}}) \, V_{\mathrm{breath}} \, t \, n_{\mathrm
 <p>Watanabe <em>et al</em>, "Development of a Dose-Response Model for SARS Coronavirus", Risk Analysis (2010) <a href="http://dx.doi.org/10.1111/j.1539-6924.2010.01427.x">10.1111/j.1539-6924.2010.01427.x</a></p>
 <p>Fonville <em>et al</em>, "Influenza Virus Reassortment Is Enhanced by Semi-infectious Particles but Can Be Suppressed by Defective Interfering Particles", PLOS Pathogens (2015), <a href="http://dx.doi.org/10.1371/journal.ppat.1005204">10.1371/journal.ppat.1005204</a></p>
 <p>"Virus Quantification", <a href="https://en.wikipedia.org/wiki/Virus_quantification">Wikipedia</a></p>
-<h4 id="Feedback">Feedback<a class="anchor-link" href="#Feedback">&#182;</a></h4><!-- https://www.facebook.com/permalink.php?story_fbid=1212468592427747&id=100009938524181 -->
+
 </div>
 </div>
 </div>
