@@ -13148,6 +13148,28 @@ div#notebook {
 </div>
 </div>
 
+<div class="output_area">
+
+    
+
+
+<div class="output_html rendered_html output_subarea ">
+<style>.container { width:80% !important; }</style>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    
+
+
+<div class="output_html rendered_html output_subarea ">
+<style>.text_cell { width:80% !important; font-family: Verdana, Geneva, sans-serif }</style>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13165,7 +13187,7 @@ div#notebook {
 <span class="c1"># nbi:hide_out</span>
 <span class="c1"># Some general layout parameters</span>
 <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;style&gt;.container { width:80% !important; }&lt;/style&gt;&#39;</span><span class="p">));</span>
-<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;style&gt;.text_cell { width:80% !important; font-family: Verdana, Geneva, sans-serif }&lt;/style&gt;&#39;</span><span class="p">));</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;style&gt;.text_cell { width:75% !important; font-family: Verdana, Geneva, sans-serif }&lt;/style&gt;&#39;</span><span class="p">));</span>
 
 <span class="c1"># Some layouts for the sliders</span>
 <span class="n">layout_cen</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;100%&#39;</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="s1">&#39;flex&#39;</span><span class="p">,</span> <span class="n">justify_content</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">align_items</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
@@ -13203,7 +13225,7 @@ div#notebook {
 
 
 <div class="output_html rendered_html output_subarea ">
-<style>.text_cell { width:80% !important; font-family: Verdana, Geneva, sans-serif }</style>
+<style>.text_cell { width:75% !important; font-family: Verdana, Geneva, sans-serif }</style>
 </div>
 
 </div>
@@ -13480,7 +13502,7 @@ per classroom ($R_{\mathrm{hepa}}$ = filtration rate in ft$^3$/min; $F_{\mathrm{
 <ul>
 <li><p>$F_{\mathrm{mask}}$ is the % effectiveness of the face mask. It's never going to be 100%, and studies suggest it's probably more like 50% for a surgical mask and 25% for a simple cloth mask. Of course if you're not wearing a mask, then $F_{\mathrm{mask}}$ will be 0%.</p>
 </li>
-<li><p>$t$ is the number of hours of exposure to a sick individual. Adults are typically shedding SARS-CoV-2 virus for 1 to 6 days before they are symptomatic. Young children may never show symptoms, so they may shed virus for at least this long, until an older member of their family becomes symptomatic, tests positive, and triggers the quarantine of the infected child. So I start with $t$ = 30 hours (5 days $\times$ 6 hrs/day).</p>
+<li><p>$t$ is the number of hours of exposure to a sick individual. Adults are typically shedding SARS-CoV-2 virus for 1 to 6 days before they are symptomatic. Young children may never show symptoms, so they may shed virus for at least this long, until an older member of their family becomes symptomatic, tests positive, and triggers the quarantine of the infected child.</p>
 </li>
 <li><p>$p$ is the number of virus particles shed by a sick individual per minute; $k$ is the total number of virus particles required to trigger an infection. These numbers are not yet well-known for SARS-CoV-2, but I've used some preliminary estimates from the scientific literature, based on previous studies of influenza and the first SARS epidemic in 2003.</p>
 </li>
@@ -13743,20 +13765,17 @@ per classroom ($R_{\mathrm{hepa}}$ = filtration rate in ft$^3$/min; $F_{\mathrm{
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Some-Comments">Some Comments<a class="anchor-link" href="#Some-Comments">&#182;</a></h3><ul>
-<li>The left plot shows the total cumulative probability that an initial transmission event will happen in your classroom, taking into account the immediate community prevalance of the virus. $P_{\mathrm{100k}}$ is the number of active, contagious cases per 100,000 in your community. You can estimate this by looking up the population and daily new case counts in your county, e.g. for <a href="https://covid19tracker.health.ny.gov/views/NYS-COVID19-Tracker/NYSDOHCOVID-19Tracker-DailyTracker" target="_blank">New York</a> or the whole <a href="https://www.worldometers.info/coronavirus/country/us/" target="_blank">United States</a>. </li>
+<li>The first plot shows the total cummulative probability that the first transmission event will happen in your classroom, taking into account the immediate community prevalance of the virus. $P_{\mathrm{100k}}$ is the prevalence of active, contagious cases per 100,000 in your community. You can estimate this by looking up the population and daily new case counts in your county, e.g. for <a href="https://covid19tracker.health.ny.gov/views/NYS-COVID19-Tracker/NYSDOHCOVID-19Tracker-DailyTracker" target="_blank">New York</a> or the whole <a href="https://www.worldometers.info/coronavirus/country/us/" target="_blank">United States</a>. </li>
 </ul>
 \begin{equation}
 P_{\mathrm{100k}} = (\text{# daily cases})(\text{# days walking around contagious})\,\frac{100,000}{\text{population}}
-\end{equation}<p>$\quad$ For example, in Essex County, NY if there is 1 new case per day, in a population of 37,300, and each person<br>
+\end{equation}<p>$\quad$ For example, in Essex County, NY if there is 1 case per day, in a population of 37,300, and each person<br>
 $\quad$ walks around for 5 days while contagious, then $P_{\mathrm{100k}} = 1\times 5\times 100,000\,/\,37,300 = 14$.</p>
 <ul>
-<li>Once the first transmission event occurs, it becomes much more likely that a larger cluster will develop (try setting $N_{\mathrm{sick}} &gt; 1$ in <a href="#simulation1">Simulation 1</a>). A full simulation of the exponential growth of a cluster after the first transmission event within the school is beyond the scope of this document.</li>
+<li>Once the first transmission event occurs in the school, it becomes much more likely that a larger cluster will develop (try setting $N_{\mathrm{sick}} &gt; 1$ in <a href="#simulation1">Simulation 1</a>). A full simulation of the exponential growth of a cluster within the school is beyond the scope of this document.</li>
 </ul>
 <ul>
-<li>The right plot shows the total cumulative probability that an initial transmission event will happen in the school. If the probability of school transmission exceeds 50%, an outbreak is likely, and the whole school may have to shut down indefinitely. So it's <em>crucial</em> for the school to adopt policies that keep the probability of first transmission very small, and the cumulative probability $&lt;$ 50%. For example, increase $R_{\mathrm{hvac}}\times F_{\mathrm{fresh}}$, $N_{\mathrm{hepa}}$, and $F_{\mathrm{mask}}$; and minimize the effective $N_{\mathrm{class}}$ by keeping the same cohort of students in a single room.</li>
-</ul>
-<ul>
-<li>More detailed information for administrators planning HVAC, filter, and mask policy is included in <a href="#simulation3">Simulation 3</a>.</li>
+<li>Once the probability of school transmission exceeds 50\%, it's likely a large cluster will develop, and the whole school may have to shut down indefinitely. So it's <em>crucial</em> for the school to adopt policies that keep the probability of first transmission very small.</li>
 </ul>
 
 </div>
@@ -13764,7 +13783,7 @@ $\quad$ walks around for 5 days while contagious, then $P_{\mathrm{100k}} = 1\ti
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="HVAC-Details">HVAC Details<a class="anchor-link" href="#HVAC-Details">&#182;</a></h3><p><a id="equations"></a>
+<h3 id="More-HVAC-Details">More HVAC Details<a class="anchor-link" href="#More-HVAC-Details">&#182;</a></h3><p><a id="equations"></a>
 <strong>Equations</strong></p>
 <p>The equilibrium concentration of virus particles in a classroom is given by the steady state rate equation (particles coming in = particles going out):</p>
 \begin{equation}
@@ -13787,7 +13806,7 @@ p(t) = 1 - \exp[-(1-F_{\mathrm{mask}}) \, V_{\mathrm{breath}} \, t \, n_{\mathrm
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a id="simulation3"></a></p>
-<h3 id="Simulation-3:-Understanding-the-effects-of-recirculated-air">Simulation 3: Understanding the effects of recirculated air<a class="anchor-link" href="#Simulation-3:-Understanding-the-effects-of-recirculated-air">&#182;</a></h3>
+<h3 id="Simulation-3:-HVAC-details">Simulation 3: HVAC details<a class="anchor-link" href="#Simulation-3:-HVAC-details">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13968,7 +13987,7 @@ p(t) = 1 - \exp[-(1-F_{\mathrm{mask}}) \, V_{\mathrm{breath}} \, t \, n_{\mathrm
 <span class="n">va</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span><span class="n">hvac_label</span><span class="p">,</span><span class="n">Rhvac_slider</span><span class="p">,</span><span class="n">Ffresh_slider</span><span class="p">,</span><span class="n">Rfan_slider</span><span class="p">,</span><span class="n">Rleak_slider</span><span class="p">,</span><span class="n">nhall_slider</span><span class="p">])</span>
 <span class="n">vb</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span><span class="n">hepa_label</span><span class="p">,</span><span class="n">Nhepa_slider</span><span class="p">,</span><span class="n">Rhepa_slider</span><span class="p">,</span><span class="n">Fhepa_slider</span><span class="p">])</span>
 <span class="n">vc</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span><span class="n">virus_label</span><span class="p">,</span><span class="n">m_slider</span><span class="p">,</span><span class="n">p_slider</span><span class="p">,</span><span class="n">k_slider</span><span class="p">])</span>
-<span class="n">vd</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span><span class="n">expose_label</span><span class="p">,</span><span class="n">Nsick_slider</span><span class="p">,</span><span class="n">t_slider</span><span class="p">,</span><span class="n">reset_box</span><span class="p">])</span>
+<span class="n">vd</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span><span class="n">expose_label</span><span class="p">,</span><span class="n">Nsick_slider</span><span class="p">,</span><span class="n">Vbreath_slider</span><span class="p">,</span><span class="n">t_slider</span><span class="p">,</span><span class="n">reset_box</span><span class="p">])</span>
 <span class="n">h</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">va</span><span class="p">,</span><span class="n">vb</span><span class="p">,</span><span class="n">vc</span><span class="p">,</span><span class="n">vd</span><span class="p">])</span>
 <span class="n">vtot</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span><span class="n">out</span><span class="p">,</span><span class="n">h</span><span class="p">])</span>
 
@@ -13980,38 +13999,17 @@ p(t) = 1 - \exp[-(1-F_{\mathrm{mask}}) \, V_{\mathrm{breath}} \, t \, n_{\mathrm
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    
-
-
-
-  <div class="output_subarea output_widget_view ">
-    <button class="js-nbinteract-widget">
-      Loading widgets...
-    </button>
-  </div>
-
-</div>
-
-</div>
-</div>
-
   </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Some-Comments">Some Comments<a class="anchor-link" href="#Some-Comments">&#182;</a></h3><ul>
-<li>This simulation starts by assuming there is only one sick child in one classroom ($N_{\mathrm{sick}}=1$) and there are no other sick children in the school ($n_{\mathrm{hall}}=0$). In this case, we see no dependence on the fresh air fraction $F_{\mathrm{fresh}}$ (right plot), as expected, because air from the hallway is just as good as outside air.</li>
+<li>This simulation starts by assuming there is only one sick child in <em>your</em> classroom ($N_{\mathrm{sick}}=1$) and there are no other sick children in the school ($n_{\mathrm{hall}}=0$). In this case, we see no dependence on the fresh air fraction $F_{\mathrm{fresh}}$ (right plot), as expected, because air from the hallway is just as good as outside air.</li>
 </ul>
 <ul>
 <li>From this starting point, we see that a typical virus concentration in a room with one sick child is on order 0.1 to 1 particles/ft$^3$. So we can start to increase $n_{\mathrm{hall}}$ towards this range of values, and now we see that the risk decreases with increasing fresh air fraction $F_{\mathrm{fresh}}$.</li>
 </ul>
 <ul>
-<li>If we increase $n_{\mathrm{hall}}$ above $n_{\mathrm{room}}$ (i.e. if there are more sick kids outside the classroom than inside the classroom), then we see the danger of recirculated airflow. Unless $F_{\mathrm{fresh}}$ is close to 100%, it's better to lower the total HVAC airflow ($R_{\mathrm{HVAC}}$) to avoid bringing virus into a classroom with no sick kids. </li>
+<li>If we increase $n_{\mathrm{hall}}$ above $n_{\mathrm{room}}$ (i.e. if there are more sick kids outside of your classroom than inside your classroom), then we see the danger of recirculated airflow. Unless $F_{\mathrm{fresh}}$ is close to 100%, it's better to lower the total HVAC airflow ($R_{\mathrm{HVAC}}$) to avoid bringing virus into your classroom. </li>
 </ul>
 <ul>
 <li>If the HVAC system cannot be configured to provide 4 full turnovers of <em>fresh</em> air per hour, another option in moderate climates is to use box fans in open windows. Box fans in windows can provide 1000-2000 ft$^3$/min of fresh air (assuming the exhaust impedance is low enough).</li>
@@ -14020,6 +14018,42 @@ p(t) = 1 - \exp[-(1-F_{\mathrm{mask}}) \, V_{\mathrm{breath}} \, t \, n_{\mathrm
 </div>
 </div>
 </div>
+
+  
+
+  <div class="nbinteract-hide_in
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># nbi:hide_in</span>
+<span class="n">Nstudent</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>    <span class="c1"># of students in classroom</span>
+<span class="n">Nweek</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>       <span class="c1"># of weeks of school</span>
+<span class="n">prob1</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">;</span>     <span class="c1"># probability that 1 student shows up sick in any given week</span>
+
+<span class="c1"># cumulative probability of your kid getting sick over Nweek weeks</span>
+<span class="k">def</span> <span class="nf">calc_prob_weeks</span><span class="p">(</span><span class="n">Nweek</span><span class="o">=</span><span class="n">Nweek</span><span class="p">,</span><span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span><span class="n">Rhvac</span><span class="o">=</span><span class="n">Rhvac</span><span class="p">,</span><span class="n">Ffresh</span><span class="o">=</span><span class="n">Ffresh</span><span class="p">,</span><span class="n">Rfan</span><span class="o">=</span><span class="n">Rfan</span><span class="p">,</span><span class="n">Rleak</span><span class="o">=</span><span class="n">Rleak</span><span class="p">,</span><span class="n">nhall</span><span class="o">=</span><span class="n">nhall</span><span class="p">,</span>\
+              <span class="n">Nhepa</span><span class="o">=</span><span class="n">Nhepa</span><span class="p">,</span><span class="n">Rhepa</span><span class="o">=</span><span class="n">Rhepa</span><span class="p">,</span><span class="n">Fhepa</span><span class="o">=</span><span class="n">Fhepa</span><span class="p">,</span><span class="n">Nsick</span><span class="o">=</span><span class="n">Nsick</span><span class="p">,</span><span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">,</span><span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span><span class="n">Vbreath</span><span class="o">=</span><span class="n">Vbreath</span><span class="p">,</span><span class="n">nroom</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">prob</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">prob</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">prob</span><span class="o">=</span><span class="n">calc_prob</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span><span class="n">Rhvac</span><span class="o">=</span><span class="n">Rhvac</span><span class="p">,</span><span class="n">Ffresh</span><span class="o">=</span><span class="n">Ffresh</span><span class="p">,</span><span class="n">Rfan</span><span class="o">=</span><span class="n">Rfan</span><span class="p">,</span><span class="n">Rleak</span><span class="o">=</span><span class="n">Rleak</span><span class="p">,</span><span class="n">nhall</span><span class="o">=</span><span class="n">nhall</span><span class="p">,</span>\
+              <span class="n">Nhepa</span><span class="o">=</span><span class="n">Nhepa</span><span class="p">,</span><span class="n">Rhepa</span><span class="o">=</span><span class="n">Rhepa</span><span class="p">,</span><span class="n">Fhepa</span><span class="o">=</span><span class="n">Fhepa</span><span class="p">,</span><span class="n">Nsick</span><span class="o">=</span><span class="n">Nsick</span><span class="p">,</span><span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">,</span><span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span><span class="n">Vbreath</span><span class="o">=</span><span class="n">Vbreath</span><span class="p">,</span><span class="n">nroom</span><span class="o">=</span><span class="n">nroom</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">prob</span><span class="p">)</span><span class="o">**</span><span class="n">Nweek</span>
+
+<span class="c1"># cumulative probability of one transmission event in a classroom over one week</span>
+<span class="k">def</span> <span class="nf">calc_prob_class</span><span class="p">(</span><span class="n">Nstudent</span><span class="o">=</span><span class="n">Nstudent</span><span class="p">,</span><span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span><span class="n">Rhvac</span><span class="o">=</span><span class="n">Rhvac</span><span class="p">,</span><span class="n">Ffresh</span><span class="o">=</span><span class="n">Ffresh</span><span class="p">,</span><span class="n">Rfan</span><span class="o">=</span><span class="n">Rfan</span><span class="p">,</span><span class="n">Rleak</span><span class="o">=</span><span class="n">Rleak</span><span class="p">,</span><span class="n">nhall</span><span class="o">=</span><span class="n">nhall</span><span class="p">,</span>\
+              <span class="n">Nhepa</span><span class="o">=</span><span class="n">Nhepa</span><span class="p">,</span><span class="n">Rhepa</span><span class="o">=</span><span class="n">Rhepa</span><span class="p">,</span><span class="n">Fhepa</span><span class="o">=</span><span class="n">Fhepa</span><span class="p">,</span><span class="n">Nsick</span><span class="o">=</span><span class="n">Nsick</span><span class="p">,</span><span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">,</span><span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span><span class="n">Vbreath</span><span class="o">=</span><span class="n">Vbreath</span><span class="p">,</span><span class="n">nroom</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">prob</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">prob</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">prob</span><span class="o">=</span><span class="n">calc_prob</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span><span class="n">Rhvac</span><span class="o">=</span><span class="n">Rhvac</span><span class="p">,</span><span class="n">Ffresh</span><span class="o">=</span><span class="n">Ffresh</span><span class="p">,</span><span class="n">Rfan</span><span class="o">=</span><span class="n">Rfan</span><span class="p">,</span><span class="n">Rleak</span><span class="o">=</span><span class="n">Rleak</span><span class="p">,</span><span class="n">nhall</span><span class="o">=</span><span class="n">nhall</span><span class="p">,</span>\
+              <span class="n">Nhepa</span><span class="o">=</span><span class="n">Nhepa</span><span class="p">,</span><span class="n">Rhepa</span><span class="o">=</span><span class="n">Rhepa</span><span class="p">,</span><span class="n">Fhepa</span><span class="o">=</span><span class="n">Fhepa</span><span class="p">,</span><span class="n">Nsick</span><span class="o">=</span><span class="n">Nsick</span><span class="p">,</span><span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">,</span><span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span><span class="n">Vbreath</span><span class="o">=</span><span class="n">Vbreath</span><span class="p">,</span><span class="n">nroom</span><span class="o">=</span><span class="n">nroom</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">prob</span><span class="p">)</span><span class="o">**</span><span class="n">Nstudent</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+  </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Parameters">Parameters<a class="anchor-link" href="#Parameters">&#182;</a></h3><p><a id="hvac_parameters"></a>
